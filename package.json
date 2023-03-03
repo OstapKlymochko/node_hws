@@ -1,0 +1,22 @@
+{
+  "name": "node_hws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OstapKlymochko/node_hws.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OstapKlymochko/node_hws/issues"
+  },
+  "homepage": "https://github.com/OstapKlymochko/node_hws#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
