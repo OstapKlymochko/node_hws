@@ -1,6 +1,6 @@
-const fs = require('fs/promises');
-const express = require('express');
-const path = require("path");
+import fs from 'fs/promises';
+import express from 'express'
+import path from 'path';
 
 const app = express();
 app.use(express.json());
@@ -57,9 +57,7 @@ app.put('/users/:userId', async (req, res) => {
         return res.status(400).end('Invalid id');
     }
     const newUser = req.body;
-    if (newUser === {}) {
-        return res.status(400).json('No data provided');
-    }
+
     const {name, age, gender} = newUser;
 
     if (!name || name.length < 2 || typeof name !== 'string') {

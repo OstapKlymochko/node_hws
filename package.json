@@ -2,9 +2,10 @@
   "name": "node_hws",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "rimraf dist && tsc-watch --onSuccess 'npm run watch'",
+    "watch": "nodemon './src/app.ts' --watch './src'"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,12 @@
   "homepage": "https://github.com/OstapKlymochko/node_hws#readme",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "nodemon": "^2.0.21",
+    "rimraf": "^4.2.0",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.0"
   }
 }
