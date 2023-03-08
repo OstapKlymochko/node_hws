@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/app.ts",
   "scripts": {
-    "start": "rimraf dist && tsc-watch --onSuccess 'npm run watch'",
-    "watch": "nodemon './src/app.ts' --watch './src'"
+    "start": "rimraf dist && tsc-watch --onSuccess \"npm run watch\"",
+    "watch": "nodemon \"src/app.ts\" --watch \"src\""
   },
   "repository": {
     "type": "git",
@@ -18,13 +18,22 @@
   },
   "homepage": "https://github.com/OstapKlymochko/node_hws#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongodb": "5.1",
+    "mongoose": "^7.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "nodemon": "^2.0.21",
     "rimraf": "^4.2.0",
     "ts-node": "^10.9.1",
-    "tsc-watch": "^6.0.0"
+    "tsc-watch": "^6.0.0",
+    "typescript": "^4.9.5"
   }
 }
