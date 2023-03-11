@@ -17,6 +17,13 @@ class UserServices {
       throw new ApiError(e.message, e.status);
     }
   }
+  async createUser(user: IUser): Promise<void> {
+    try {
+      await User.create(user);
+    } catch (e) {
+      throw new ApiError(e.message, e.status);
+    }
+  }
 }
 
 export const userServices = new UserServices();
