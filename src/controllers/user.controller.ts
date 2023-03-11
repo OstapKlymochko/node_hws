@@ -71,7 +71,9 @@ class UserController {
     try {
       const { userId } = req.params;
       await User.deleteOne({ _id: userId });
-      return res.sendStatus(204);
+      return res.sendStatus(204).json({
+        message: "User deleted!",
+      });
     } catch (e) {
       next(e);
     }

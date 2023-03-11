@@ -1,6 +1,6 @@
 import { ApiError } from "../errors";
 import { Token } from "../models";
-import { ICredentials, ITokens, /*ITokens,*/ IUser } from "../types";
+import { ICredentials, IPayload, ITokens, /*ITokens,*/ IUser } from "../types";
 import { passwordServices } from "./password.services";
 import { TokenServices } from "./token.services";
 import { userServices } from "./user.services";
@@ -25,8 +25,8 @@ class AuthServices {
       if (!compareRes) {
         throw new ApiError("incorrect email or password", 400);
       }
-      const tokens = await TokenServices.generateTokenPair({
-        id: user._id.toString(),
+      const tokens = TokenServices.generateTokenPair({
+        _id: user._id,
         name: user.name,
       });
       await Token.create({
@@ -35,6 +35,22 @@ class AuthServices {
       });
 
       return tokens;
+    } catch (e) {
+      throw new ApiError(e.message, e.status);
+    }
+  }
+  public async refresh(tokens: ITokens, payload: IPayload) {
+    try {
+      const { _id, name } = payload;
+      const tokenPair = TokenServices.generateTokenPair({
+        _id,
+        name,
+      });
+      await Promise.all([
+        Token.create({ _user_id: _id, ...tokenPair }),
+        Token.deleteOne({ refreshToken: tokens.refreshToken }),
+      ]);
+      return tokenPair;
     } catch (e) {
       throw new ApiError(e.message, e.status);
     }
