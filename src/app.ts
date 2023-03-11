@@ -19,7 +19,7 @@ app.use((err: IError, req: Request, res: Response, next: NextFunction) => {
     status,
   });
 });
-
+console.log("OK");
 app.listen(configs.PORT, async () => {
   await mongoose.connect(configs.DB_URL);
   console.log("Server has started on port", configs.PORT);
