@@ -20,5 +20,5 @@ app.use((err: ApiError, req: Request, res: Response, next: NextFunction) => {
 });
 app.listen(configs.PORT, async () => {
   await mongoose.connect(configs.DB_URL);
-  console.log(`Server has started on port ${configs.PORT}`);
+  console.log(`Server has started on port ${configs.PORT} :)`);
 });
