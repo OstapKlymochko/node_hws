@@ -9,6 +9,6 @@
     "removeComments": true,                           /* Disable emitting comments. */
     "noUnusedLocals": true,                           /* Enable error reporting when local variables aren't read. */
     "skipLibCheck": true,
-    "strict": false
+    "strict": false,
   }
 }

@@ -30,6 +30,7 @@ class AuthMiddleware {
       next(e);
     }
   }
+
   public async checkRefreshToken(
     req: Request,
     res: Response,
@@ -52,4 +53,5 @@ class AuthMiddleware {
     }
   }
 }
+
 export const authMiddleware = new AuthMiddleware();
